@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IEEE Robotics & Automation Society | Pulchowk STBC</title>
+    <meta name="description" content="Official website of IEEE Robotics & Automation Society Pulchowk Student Branch Chapter at IOE Pulchowk Campus. Advancing robotics, automation, and technology for humanity." />
+    <link rel="icon" type="image/png" href="/logo-ras-color.png?v=2026_02" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS with Official IEEE RAS Brand Palette -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+            colors: {
+              'ieee-ras': '#862633',
+              'ieee-ras-dark': '#611621',
+              'ieee-ras-light': '#a12f3e',
+              'ieee-purple': '#5F2167',
+              'ieee-dark': '#14040f',
+              'ieee-darker': '#0a0208',
+            },
+            animation: {
+              'aurora': 'aurora 16s ease-in-out infinite',
+              'aurora-slow': 'aurora 24s ease-in-out infinite',
+            },
+            keyframes: {
+              aurora: {
+                '0%, 100%': { transform: 'translate3d(0, 0, 0) scale(1)', opacity: '0.45' },
+                '50%': { transform: 'translate3d(5%, -7%, 0) scale(1.15)', opacity: '0.75' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background-color: #ffffff;
+        color: #171717;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Blog Markdown Content Styles */
+      .blog-content h1 { font-size: 1.75rem; font-weight: 800; color: #111827; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+      .blog-content h2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+      .blog-content h3 { font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-top: 1rem; margin-bottom: 0.5rem; }
+      .blog-content p { margin-top: 0.75rem; margin-bottom: 0.75rem; line-height: 1.75; color: #374151; }
+      .blog-content ul { list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem; color: #374151; }
+      .blog-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem; color: #374151; }
+      .blog-content li { margin-top: 0.25rem; margin-bottom: 0.25rem; line-height: 1.6; }
+      .blog-content strong { font-weight: 700; color: #111827; }
+      .blog-content em { font-style: italic; }
+      .blog-content a { color: #862633; text-decoration: underline; font-weight: 500; }
+      .blog-content code { background-color: #f3f4f6; color: #862633; padding: 0.15rem 0.35rem; border-radius: 0.25rem; font-size: 0.875em; font-family: monospace; }
+      .blog-content pre { background-color: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-top: 0.75rem; margin-bottom: 0.75rem; }
+      .blog-content blockquote { border-left: 4px solid #862633; padding-left: 1rem; color: #4b5563; font-style: italic; margin-top: 0.75rem; margin-bottom: 0.75rem; background-color: #fdf2f4; padding-top: 0.5rem; padding-bottom: 0.5rem; border-radius: 0 0.375rem 0.375rem 0; }
+
+      /* Navbar Dynamic Scrolled Styles */
+      #main-navbar {
+        transition: background-color 0.25s ease, padding 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      }
+      #main-navbar.nav-scrolled {
+        background-color: rgba(255, 255, 255, 0.96) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05) !important;
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+      }
+      #main-navbar.nav-scrolled .nav-text-color {
+        color: #1f2937 !important;
+      }
+      #main-navbar.nav-scrolled .nav-text-color:hover {
+        color: #862633 !important;
+      }
+      #main-navbar.nav-scrolled .nav-logo-white {
+        display: none !important;
+      }
+      #main-navbar.nav-scrolled .nav-logo-color {
+        display: block !important;
+      }
+      #main-navbar.nav-scrolled .nav-cta-btn {
+        background-color: #862633 !important;
+        color: #ffffff !important;
+      }
+      #main-navbar.nav-scrolled .nav-mobile-btn {
+        color: #1f2937 !important;
+      }
+    </style>
+
+    <!-- Interactive Particle Background Canvas Script -->
+    <script>
+      window.initHeroParticles = function() {
+        const canvas = document.getElementById('hero-particles-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        let width = canvas.width = canvas.parentElement.offsetWidth;
+        let height = canvas.height = canvas.parentElement.offsetHeight;
+
+        window.addEventListener('resize', () => {
+          if (!canvas.parentElement) return;
+          width = canvas.width = canvas.parentElement.offsetWidth;
+          height = canvas.height = canvas.parentElement.offsetHeight;
+        });
+
+        const particles = [];
+        const count = Math.min(100, Math.floor(width / 15));
+        const colors = ['#862633', '#e11d48', '#5F2167', '#c084fc', '#f43f5e', '#38bdf8'];
+
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.6,
+            vy: (Math.random() - 0.5) * 0.6,
+            radius: Math.random() * 2 + 1,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            alpha: Math.random() * 0.6 + 0.3
+          });
+        }
+
+        let mouseX = -1000;
+        let mouseY = -1000;
+
+        window.addEventListener('mousemove', (e) => {
+          const rect = canvas.getBoundingClientRect();
+          mouseX = e.clientX - rect.left;
+          mouseY = e.clientY - rect.top;
+        });
+
+        function animate() {
+          ctx.clearRect(0, 0, width, height);
+
+          // Draw connection lines
+          for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 100) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(134, 38, 51, ${0.2 * (1 - dist / 100)})`;
+                ctx.lineWidth = 0.7;
+                ctx.stroke();
+              }
+            }
+          }
+
+          // Update & draw particles
+          for (let p of particles) {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0) p.x = width;
+            if (p.x > width) p.x = 0;
+            if (p.y < 0) p.y = height;
+            if (p.y > height) p.y = 0;
+
+            // Mouse repulsion
+            const mdx = p.x - mouseX;
+            const mdy = p.y - mouseY;
+            const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+            if (mdist < 120 && mdist > 0) {
+              const force = (120 - mdist) / 120;
+              p.x += (mdx / mdist) * force * 3;
+              p.y += (mdy / mdist) * force * 3;
+            }
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = p.alpha;
+            ctx.fill();
+            ctx.globalAlpha = 1.0;
+          }
+
+          requestAnimationFrame(animate);
+        }
+        animate();
+      };
+    </script>
+
+    <!-- Trunk integration -->
+    <link data-trunk rel="rust" data-bin="ieee-ras-pulchowk" />
+    <link data-trunk rel="copy-dir" href="public" data-target-path="." />
+    <link data-trunk rel="copy-file" href="public/logo-ras-color.png" />
+    <link data-trunk rel="copy-file" href="public/logo-ras-white.png" />
+    <link data-trunk rel="copy-file" href="public/logo-ras-color.svg" />
+    <link data-trunk rel="copy-file" href="public/logo-ras-white.svg" />
+    <link data-trunk rel="copy-file" href="public/logo-white.svg" />
+    <link data-trunk rel="copy-file" href="public/logo-blue.svg" />
+  </head>
+  <body class="bg-white text-gray-900 antialiased selection:bg-rose-700 selection:text-white min-h-screen">
+    <div id="main"></div>
+  </body>
+</html>

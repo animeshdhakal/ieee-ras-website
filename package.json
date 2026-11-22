@@ -1,0 +1,11 @@
+{
+  "name": "ieee-ras-pulchowk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static Website for IEEE Robotics & Automation Society Pulchowk STBC built with Dioxus",
+  "scripts": {
+    "dev": "trunk serve",
+    "build": "trunk build --release",
+    "serve": "trunk serve --release"
+  }
+}
