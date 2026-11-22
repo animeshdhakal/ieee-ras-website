@@ -14,12 +14,13 @@ fi
 
 # Ensure Trunk
 if ! command -v trunk &> /dev/null; then
-  echo "Fetching prebuilt Trunk binary..."
+  echo "Fetching prebuilt Trunk static binary (musl)..."
   mkdir -p "$HOME/.bin"
-  # Vercel containers run x86_64 Linux
-  curl -sL "https://github.com/trunk-rs/trunk/releases/latest/download/trunk-x86_64-unknown-linux-gnu.tar.gz" | tar -xz -C "$HOME/.bin"
-  export PATH="$HOME/.bin:$PATH"
+  # Statically linked musl binary has zero glibc dependencies for Vercel Amazon Linux 2
+  curl -sL "https://github.com/trunk-rs/trunk/releases/latest/download/trunk-x86_64-unknown-linux-musl.tar.gz" | tar -xz -C "$HOME/.bin"
 fi
+
+export PATH="$HOME/.bin:$HOME/.cargo/bin:$PATH"
 
 echo "Building with $(trunk --version)..."
 trunk build --release
