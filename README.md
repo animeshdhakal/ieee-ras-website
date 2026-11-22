@@ -65,26 +65,25 @@ Here is a quick overview of how the project is organized so future webmasters ca
 │   ├── committee/ras/       # Member portraits (2026 tenure)
 │   ├── blogs/               # Blog covers and graphics
 │   └── logo-ras-*.png/svg   # Official IEEE RAS logos (color & white)
-└── dioxus/
-    └── src/
-        ├── main.rs          # App entry point, Router enum & layout
-        ├── types.rs         # Data structs (TeamMember, Blog, IeeeEvent)
-        ├── data/            # Static content files
-        │   ├── team.rs      # Executive committee & officer rosters
-        │   ├── blogs.rs     # Articles & Markdown posts
-        │   ├── events.rs    # Chapter events and workshop details
-        │   └── gallery.rs   # Gallery image registry
-        ├── views/           # Page routes (Home, Events, Team, Blogs, Gallery)
-        └── components/      # Reusable UI widgets (Navbar, Footer, Modals, Cards)
+└── src/
+    ├── main.rs              # App entry point, Router enum & layout
+    ├── types.rs             # Data structs (TeamMember, Blog, IeeeEvent)
+    ├── data/                # Static content files
+    │   ├── team.rs          # Executive committee & officer rosters
+    │   ├── blogs.rs         # Articles & Markdown posts
+    │   ├── events.rs        # Chapter events and workshop details
+    │   └── gallery.rs       # Gallery image registry
+    ├── views/               # Page routes (Home, Events, Team, Blogs, Gallery)
+    └── components/          # Reusable UI widgets (Navbar, Footer, Modals, Cards)
 ```
 
 ---
 
 ## How to Update Content
 
-- **Adding or editing team members**: Edit `dioxus/src/data/team.rs` and drop square photo portraits into `public/committee/ras/`.
-- **Posting a blog article**: Add a new `Blog` item to `dioxus/src/data/blogs.rs`. The `content` field supports standard Markdown (headers, lists, links, code blocks) and is parsed in the reader modal.
-- **Publishing upcoming events**: Add entries to `dioxus/src/data/events.rs` with `is_upcoming: true`. When there are no active events, the site automatically displays a fallback announcement card.
+- **Adding or editing team members**: Edit `src/data/team.rs` and drop square photo portraits into `public/committee/ras/`.
+- **Posting a blog article**: Add a new `Blog` item to `src/data/blogs.rs`. The `content` field supports standard Markdown (headers, lists, links, code blocks) and is parsed in the reader modal.
+- **Publishing upcoming events**: Add entries to `src/data/events.rs` with `is_upcoming: true`. When there are no active events, the site automatically displays a fallback announcement card.
 
 ---
 

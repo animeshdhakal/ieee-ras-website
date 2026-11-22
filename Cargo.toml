@@ -6,7 +6,7 @@ description = "Static Website for IEEE Robotics & Automation Society Pulchowk ST
 
 [[bin]]
 name = "ieee-ras-pulchowk"
-path = "dioxus/src/main.rs"
+path = "src/main.rs"
 
 [dependencies]
 dioxus = { version = "0.6.3", features = ["web", "router"] }
